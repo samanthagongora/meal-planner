@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,6 +21,14 @@
         <a class="navbar-brand" href="/">Meal Planner</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>
+          <span class="glyphicon glyphicon-user" aria-hidden="true"> <%= "Welcome, #{current_user.username.capitalize}" %></span>
+        </li>
+        <li>
+          <%= link_to 'Logout', logout_path, method: :delete %>
+        </li>
+        <% end %>
         <!-- <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes
             <span class="caret"></span>
@@ -34,26 +42,21 @@
             </li>
           </ul>
         </li> -->
-        <li>
-          <a href="/login">Login</a>
-        </li>
+        <% unless current_user %>
+          <li>
+            <a href="/users/new">Create Account</a>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
   </nav>
-  <% flash.each do |_name, msg| %>
-    <% if flash[:notice] %>
-      <div class="alert alert-danger text-center">
-        <strong>Error!</strong><br><hr>
-        <%= msg %>
-      </div>
-    <% else %>
-      <div class="alert alert-success" role="alert">
-        <strong>Success!</strong><br><hr>
-        <%= msg %>
-      </div>
-    <% end %>
-    <% end %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
 
   <div class="container-fluid text-center">
   <%= yield %>
