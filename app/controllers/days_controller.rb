@@ -9,5 +9,6 @@ class DaysController < ApplicationController
 
   def show
     @day = Day.find(params[:id])
+    @recipes = @day.recipes
   end
 end

@@ -1,3 +1,4 @@
-<h1>Create a New Meal Plan:</h1>
-
+<h1>Create a New Meal Plan for: </h1>
+<h3><%= "#{@day.date.strftime('%A, %B %d, %Y')}" %></h3>
+<hr>
 <%= render partial: "form" %>
