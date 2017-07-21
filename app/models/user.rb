@@ -3,4 +3,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
+
+  has_many :days
+  has_many :day_recipes, through: :days
 end

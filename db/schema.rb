@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20170720164105) do
   enable_extension "plpgsql"
 
   create_table "day_recipes", force: :cascade do |t|
-    t.bigint "days_id"
-    t.bigint "recipes_id"
+    t.bigint "day_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "meal"
-    t.index ["days_id"], name: "index_day_recipes_on_days_id"
-    t.index ["recipes_id"], name: "index_day_recipes_on_recipes_id"
+    t.index ["day_id"], name: "index_day_recipes_on_day_id"
+    t.index ["recipe_id"], name: "index_day_recipes_on_recipe_id"
   end
 
   create_table "days", force: :cascade do |t|

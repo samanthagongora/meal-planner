@@ -1,0 +1,23 @@
+<%= @date %>
+
+<%= form_for(:day_form,
+             html: {id: 'day_form'},
+             url: day_forms_path) do |f| %>
+
+  <%= f.hidden_field(:date, name: 'day_form[date]', value: @day.date) %>
+  <%= f.hidden_field(:user_id, name: 'day_form[user_id]', value: @day.user.id) %>
+
+  <%= f.label :breakfast %>
+  <%= select("day_form", "breakfast_id", Recipe.all.collect {|r| [r.name, r.id]}) %>
+
+  <%= f.label :lunch %>
+  <%= select("day_form", "lunch_id", Recipe.all.collect {|r| [r.name, r.id]}) %>
+
+  <%= f.label :dinner %>
+  <%= select("day_form", "dinner_id", Recipe.all.collect {|r| [r.name, r.id]}) %>
+
+  <%= f.label :snack %>
+  <%= select("day_form", "snack_id", Recipe.all.collect {|r| [r.name, r.id]}) %>
+
+  <%= f.submit "Create Meal Plan" %>
+<% end %>

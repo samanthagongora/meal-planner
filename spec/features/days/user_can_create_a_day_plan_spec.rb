@@ -7,12 +7,14 @@ RSpec.describe "User visits day route" do
 
     visit user_path(user)
     click_on 'Create New Meal Plan'
-    select recipe.name, from: "day_recipe_id"
-    select recipe.name, from: "day_recipe_id"
-    select recipe.name, from: "day_recipe_id"
+
+    select recipe.name, from: "day_form_breakfast_id"
+    select recipe.name, from: "day_form_lunch_id"
+    select recipe.name, from: "day_form_dinner_id"
+    select recipe.name, from: "day_form_snack_id"
+
     click_on 'Create Meal Plan'
 
     expect(page).to have_content('Meal Plan Created!')
-    expect(current_path).to be('user/:id')
   end
 end
