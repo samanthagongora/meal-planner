@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @days = @user.days.all
+    # @day_recipes = @user.day_recipes.all
   end
 
   def create
