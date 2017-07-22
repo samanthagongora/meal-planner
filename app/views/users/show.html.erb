@@ -11,7 +11,7 @@
         <p>calories: <%= recipe.calories %><br>
            servings: <%= recipe.servings %></p>
       <% end %>
-      <%= link_to "Edit Meal Plan", edit_user_day_path(@user, day) %>
+      <%= link_to "Edit Meal Plan", edit_user_day_form_path(@user, day) %>
       <%= link_to "Delete Meal Plan", user_day_path(@user, day), method: :delete %>
     </div>
   </div>

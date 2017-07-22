@@ -6,6 +6,18 @@ class DayForm
 
   attr_accessor :date, :user_id, :breakfast_id, :lunch_id, :dinner_id, :snack_id
 
+  def self.from_day(day)
+    df = DayForm.new
+    df.user_id = day.user.id
+    df.date = day.date
+    recipes = day.recipes
+    df.breakfast_id = recipes[0].id
+    df.lunch_id = recipes[1].id
+    df.dinner_id = recipes[2].id
+    df.snack_id = recipes[3].id
+    df
+  end
+
   def create(day)
     return false unless valid?
     user = User.find(user_id)

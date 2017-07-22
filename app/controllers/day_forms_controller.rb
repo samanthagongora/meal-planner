@@ -10,6 +10,12 @@ class DayFormsController < ApplicationController
       end
   end
 
+  def edit
+    day = Day.find(params[:id])
+    @day_form = DayForm.from_day(day)
+    # byebug
+  end
+
   def update
     @day_form = DayForm.new(day_form_params)
       @day = Day.find_by(date: day_form_params[:date])
