@@ -1,5 +1,5 @@
-  <%= f.hidden_field(:date, name: 'day_form[date]', value: @day.date) %>
-  <%= f.hidden_field(:user_id, name: 'day_form[user_id]', value: @day.user.id) %>
+  <%= f.hidden_field(:date, name: 'day_form[date]', value: @day_form.date) %>
+  <%= f.hidden_field(:user_id, name: 'day_form[user_id]', value: @day_form.user_id) %>
 
   <h3><%= f.label :breakfast %>:</h3>
   <%= select("day_form", "breakfast_id", Recipe.all.collect {|r| [r.name, r.id]}) %>

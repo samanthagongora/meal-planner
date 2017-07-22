@@ -1,0 +1,11 @@
+<h1>Edit Meal Plan for: </h1>
+<h3><%#="#{@day_form.date.strftime('%A, %B %d, %Y')}" %></h3>
+<hr>
+<%= form_for(@day_form,
+             html: {id: 'day_form'},
+             url: day_forms_path, method: :put) do |f| %>
+
+<%= render partial: "form", locals: { f: f } %>
+
+<%= f.submit "Update Meal Plan" %>
+<% end %>
