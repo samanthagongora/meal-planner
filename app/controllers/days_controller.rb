@@ -4,7 +4,10 @@ class DaysController < ApplicationController
   def new
     @day = Day.new
     @day.user = User.find(params[:user_id])
-    @day.date = DateTime.now
+    @day.date = Date.today
+    while Day.find_by(date: @day.date)
+      @day.date += 1
+    end
   end
 
   def show
