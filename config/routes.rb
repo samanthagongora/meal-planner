@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   put :day_forms, to: 'day_forms#update'
 
   resources :users, only: [:new, :show, :create] do
-    resources :days, only: [:new, :show, :create, :edit]
+    resources :days, only: [:new, :show, :create, :edit, :destroy]
   end
 end

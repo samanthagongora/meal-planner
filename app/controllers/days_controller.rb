@@ -18,7 +18,20 @@ class DaysController < ApplicationController
 
   def update(day_form_params)
     @day = day.find(params[:date])
-    
+
     @day.update(day_form_params)
+  end
+
+  def destroy
+    @day = Day.find(params[:id])
+    @user = @day.user
+
+    if @day.destroy
+      flash[:notice] = "Meal Plan Deleted!"
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Error Deleting Meal Plan!"
+      redirect_to user_path(@user)
+    end
   end
 end

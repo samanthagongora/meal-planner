@@ -10,6 +10,6 @@ RSpec.describe "User visits account page" do
     click_on 'Delete Meal Plan', match: :first
 
     expect(page).to have_content('Meal Plan Deleted!')
-    expect(page).to have_content(day2.date)
+    expect(page).to have_content(day2.date.strftime('%A, %B %d, %Y'))
   end
 end
