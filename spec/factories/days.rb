@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :day do
-    date "2017-07-19"
+    sequence :date do |t|
+      "201#{t}-07-19"
+    end
     user
   end
 end
