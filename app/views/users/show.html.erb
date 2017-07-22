@@ -1,11 +1,11 @@
 <h1><%= "#{@user.username.capitalize}" %>'s Meal Plans</h1>
-
+<hr>
 <%= link_to "Create New Meal Plan", new_user_day_path(@user) %>
 <% @days.each do |day| %>
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="caption">
-      <h3><%= day.date %></h3>
+      <h3><%= day.date.strftime('%A, %B %d, %Y') %></h3>
       <% day.recipes.each do |recipe| %>
         <h3><%= recipe.name %></h3>
         <p>calories: <%= recipe.calories %><br>
