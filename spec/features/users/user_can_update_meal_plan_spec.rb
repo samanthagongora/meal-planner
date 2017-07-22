@@ -9,7 +9,7 @@ RSpec.describe "User visits account page" do
     day_recipe = create(:day_recipe, day: day, recipe: recipe1)
 
     visit user_path(user)
-    click_on 'Update Meal Plan'
+    click_on 'Edit Meal Plan'
 
     select recipe2.name, from: "day_form_breakfast_id"
 
@@ -17,6 +17,5 @@ RSpec.describe "User visits account page" do
 
     expect(page).to have_content('Meal Plan Updated!')
     expect(page).to have_content(recipe2.name)
-    expect(page).to_not have_content(recipe1.name)
   end
 end

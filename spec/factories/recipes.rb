@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :recipe do
-    name "MyString"
+    sequence :name do |t|
+      "MyString#{t}"
+    end 
     calories 1
     servings 1
   end

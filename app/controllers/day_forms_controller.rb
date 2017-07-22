@@ -10,6 +10,16 @@ class DayFormsController < ApplicationController
       end
   end
 
+  def update
+    @day_form = DayForm.new(day_form_params)
+      @day = Day.find_by(date: day_form_params[:date])
+    if @day_form.update(@day, day_form_params)
+      redirect_to user_day_path(@day.user, @day.id), notice: 'Meal Plan Updated!'
+    else
+      redirect_to edit_user_day_path(day_form_params[:user_id], @day), notice: @day.errors.messages
+    end
+  end
+
   private
 
   def day_form_params

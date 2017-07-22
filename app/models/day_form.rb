@@ -18,4 +18,15 @@ class DayForm
     day.recipes = [breakfast, lunch, dinner, snack]
     day.save
   end
+
+  def update(day, day_form_params)
+    return false unless valid?
+    day.recipes.clear
+    breakfast = Recipe.find(breakfast_id)
+    lunch = Recipe.find(lunch_id)
+    dinner = Recipe.find(dinner_id)
+    snack = Recipe.find(snack_id)
+    day.recipes = [breakfast, lunch, dinner, snack]
+    day.save
+  end
 end

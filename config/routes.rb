@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   post :day_forms, to: 'day_forms#create'
+  put :day_forms, to: 'day_forms#update'
 
   resources :users, only: [:new, :show, :create] do
-    resources :days, only: [:new, :show, :create]
+    resources :days, only: [:new, :show, :create, :edit]
   end
 end

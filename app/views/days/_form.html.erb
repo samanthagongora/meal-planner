@@ -1,7 +1,3 @@
-<%= form_for(:day_form,
-             html: {id: 'day_form'},
-             url: day_forms_path) do |f| %>
-
   <%= f.hidden_field(:date, name: 'day_form[date]', value: @day.date) %>
   <%= f.hidden_field(:user_id, name: 'day_form[user_id]', value: @day.user.id) %>
 
@@ -29,7 +25,3 @@
   <br>
   <br>
   <br>
-
-  <%= f.submit "Create Meal Plan" %>
-  
-<% end %>

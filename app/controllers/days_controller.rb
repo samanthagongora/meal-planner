@@ -11,4 +11,14 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
     @recipes = @day.recipes
   end
+
+  def edit
+    @day = Day.find(params[:id])
+  end
+
+  def update(day_form_params)
+    @day = day.find(params[:date])
+    
+    @day.update(day_form_params)
+  end
 end
