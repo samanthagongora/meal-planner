@@ -6,7 +6,7 @@
           <p>Calories: <%= @recipe.calories %><br>
             Servings: <%= @recipe.servings %></p>
             <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
-            <%#= link_to "Delete Recipe" %>
+            <%= link_to "Delete Recipe", recipe_path(@recipe), method: :delete %>
         </div>
       </div>
   </div>
