@@ -1,0 +1,14 @@
+<h1>All Recipes</h1>
+<%= link_to "Create New Recipe", new_recipe_path %>
+<hr>
+<% @recipes.each do |recipe| %>
+    <div class="col-xs-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            <p> <%= recipe.calories %><br>
+              <%= recipe.servings %></p>
+          </div>
+        </div>
+    </div>
+<% end %>

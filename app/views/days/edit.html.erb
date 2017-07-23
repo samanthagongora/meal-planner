@@ -1,7 +1,7 @@
 <h1>Edit Meal Plan for: </h1>
 <h3><%= "#{@day.date.strftime('%A, %B %d, %Y')}" %></h3>
 <hr>
-<%= form_for(:day_form,
+<%= bootstrap_form_for(:day_form,
              html: {id: 'day_form'},
              url: day_forms_path, method: :put) do |f| %>
 

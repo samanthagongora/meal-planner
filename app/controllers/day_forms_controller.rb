@@ -13,7 +13,6 @@ class DayFormsController < ApplicationController
   def edit
     day = Day.find(params[:id])
     @day_form = DayForm.from_day(day)
-    # byebug
   end
 
   def update

@@ -3,4 +3,6 @@ class Recipe < ApplicationRecord
   has_many :days, through: :day_recipes
 
   validates :name, presence: true, uniqueness: true
+  validates :calories, presence: true, numericality: true
+  validates :servings, presence: true, numericality: true
 end

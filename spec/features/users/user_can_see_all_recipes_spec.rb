@@ -7,7 +7,7 @@ RSpec.describe "User visits recipes page" do
     recipe2 = create(:recipe)
     recipe3 = create(:recipe)
 
-    visit recipe_path
+    visit recipes_path
 
     expect(page).to have_content(recipe1.name)
     expect(page).to have_content(recipe1.calories)
