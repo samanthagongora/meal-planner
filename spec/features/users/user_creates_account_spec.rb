@@ -13,6 +13,8 @@ RSpec.feature "User creates a new account" do
     find('input[name="commit"]').click
 
     user = User.last
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, #{user.username.capitalize}")

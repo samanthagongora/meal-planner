@@ -1,6 +1,8 @@
 require 'date'
 
 class DaysController < ApplicationController
+  before_action :authorize_user
+
   def new
     @day = Day.new
     @day.user = User.find(params[:user_id])
