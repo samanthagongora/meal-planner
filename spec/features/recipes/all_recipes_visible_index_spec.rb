@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "User visits recipes page" do
   scenario "can see all recipes" do
-    user = create(:user)
     recipe1 = create(:recipe)
     recipe2 = create(:recipe)
     recipe3 = create(:recipe)

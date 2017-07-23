@@ -5,7 +5,7 @@ RSpec.describe "User visits account page" do
     user = create(:user)
     day = create(:day, user: user)
     recipe1 = create(:recipe)
-    recipe2 = create(:recipe, name: "MyString1")
+    recipe2 = create(:recipe)
     day_recipe1 = create(:day_recipe, day: day, recipe: recipe1)
     day_recipe2 = create(:day_recipe,day: day , recipe: recipe2)
 
