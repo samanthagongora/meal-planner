@@ -5,6 +5,7 @@ RSpec.describe "Visits new day page" do
   scenario "cannot create a duplicate day record" do
     user = create(:user)
     day1 = create(:day, date: Date.today, user: user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit new_user_day_path(user)
 

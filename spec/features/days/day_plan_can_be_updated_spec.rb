@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Meal plan can be updated" do
   scenario "from index page" do
-    user = build(:user)
+    user = create(:user)
     recipes = build_list(:recipe, 4)
     day = create(:day, user: user, recipes: recipes)
     new_recipe = create(:recipe)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     click_on 'Edit Meal Plan'
@@ -19,10 +20,11 @@ RSpec.describe "Meal plan can be updated" do
   end
 
   scenario "from show page" do
-    user = build(:user)
+    user = create(:user)
     recipes = build_list(:recipe, 4)
     day = create(:day, user: user, recipes: recipes)
     new_recipe = create(:recipe)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     click_on day.date.strftime('%A, %B %d, %Y')

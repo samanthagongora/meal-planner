@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
     @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def authorize
-    render file: '/public/404' unless current_user.id == params[:id].to_i
+  def authorize_user
+    id = params[:user_id] || params[:id]
+    render file: '/public/404' unless current_user == User.find(id)
   end
 end

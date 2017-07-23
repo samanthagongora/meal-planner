@@ -4,6 +4,7 @@ RSpec.describe "User visits day route" do
   scenario "user can create a meal plan" do
     user = create(:user)
     recipe = create(:recipe)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     click_on 'Create New Meal Plan'

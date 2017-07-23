@@ -8,6 +8,7 @@ RSpec.describe "User visits account page" do
     recipe2 = create(:recipe)
     day_recipe1 = create(:day_recipe, day: day, recipe: recipe1)
     day_recipe2 = create(:day_recipe,day: day , recipe: recipe2)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
 

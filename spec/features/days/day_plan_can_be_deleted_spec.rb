@@ -5,6 +5,7 @@ RSpec.describe "User can delete meal plan" do
     user = create(:user)
     day1 = create(:day, user: user)
     day2 = create(:day, user: user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
     click_on 'Delete Meal Plan', match: :first
@@ -17,6 +18,7 @@ RSpec.describe "User can delete meal plan" do
     user = create(:user)
     day1 = create(:day, user: user)
     day2 = create(:day, user: user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_day_path(user, day1)
     click_on 'Delete Meal Plan'
