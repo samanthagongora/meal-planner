@@ -1,20 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe "User visits account page" do
-  scenario "user can see meals planned" do
+RSpec.describe "See all meals planned" do
+  scenario "on user index" do
     user = create(:user)
-    day = create(:day, user: user)
-    recipe1 = create(:recipe)
-    recipe2 = create(:recipe)
-    day_recipe1 = create(:day_recipe, day: day, recipe: recipe1)
-    day_recipe2 = create(:day_recipe,day: day , recipe: recipe2)
+    recipes = build_list(:recipe, 4)
+    day = create(:day, user: user, recipes: recipes)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
 
-    expect(page).to have_content(recipe1.name)
-    expect(page).to have_content(recipe1.calories)
-    expect(page).to have_content(recipe2.name)
-    expect(page).to have_content(recipe2.calories)
+    expect(page).to have_content(recipes[0].name)
+    expect(page).to have_content(recipes[0].calories)
+    expect(page).to have_content(recipes[1].name)
+    expect(page).to have_content(recipes[1].calories)
+    expect(page).to have_content(recipes[2].name)
+    expect(page).to have_content(recipes[2].calories)
+    expect(page).to have_content(recipes[3].name)
+    expect(page).to have_content(recipes[3].calories)
   end
 end

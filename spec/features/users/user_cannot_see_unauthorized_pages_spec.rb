@@ -4,7 +4,8 @@ RSpec.feature "User visits unauthorized pages" do
   scenario "cannot see pages" do
     user1 = create(:user)
     user2 = create(:user)
-    day = create(:day, user: user2)
+    recipes = build_list(:recipe, 4)
+    day = create(:day, user: user2, recipes: recipes)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user1)
 
     visit "/users/#{user2.id}"

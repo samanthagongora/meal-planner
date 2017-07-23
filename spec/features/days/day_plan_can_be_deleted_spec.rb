@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe "User can delete meal plan" do
   scenario "from index page" do
     user = create(:user)
-    day1 = create(:day, user: user)
-    day2 = create(:day, user: user)
+    recipes = build_list(:recipe, 4)
+    day1 = create(:day, user: user, recipes: recipes)
+    day2 = create(:day, user: user, recipes: recipes)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
@@ -16,8 +17,9 @@ RSpec.describe "User can delete meal plan" do
 
   scenario "from show page" do
     user = create(:user)
-    day1 = create(:day, user: user)
-    day2 = create(:day, user: user)
+    recipes = build_list(:recipe, 4)
+    day1 = create(:day, user: user, recipes: recipes)
+    day2 = create(:day, user: user, recipes: recipes)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_day_path(user, day1)

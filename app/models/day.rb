@@ -5,4 +5,11 @@ class Day < ApplicationRecord
   belongs_to :user
 
   validates :date, presence: true, uniqueness: true
+  validates :user, presence: true
+  validates :recipes, presence: true
+  validate :recipe_length
+
+  def recipe_length
+    self.recipes == 4
+  end
 end

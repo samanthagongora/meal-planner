@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# has_many :day_recipes
-# has_many :days, through: :day_recipes
-#
-# validates :name, presence: true, uniqueness: true
-# validates :calories, presence: true, numericality: true
-# validates :servings, presence: true, numericality: true
-
 RSpec.describe Recipe, type: :model do
   recipe = Recipe.create({name: "anything",
                           calories: 1,
@@ -22,15 +15,19 @@ RSpec.describe Recipe, type: :model do
     expect(recipe).to_not be_valid
   end
 
-  it "is not valid without calories" do
+  it "is not valid without calories or number of calories" do
     recipe.calories = nil
+    expect(recipe).to_not be_valid
 
+    recipe.calories = "string"
     expect(recipe).to_not be_valid
   end
 
-  it "is not valid without servings" do
+  it "is not valid without servings or number of servings" do
     recipe.servings = nil
+    expect(recipe).to_not be_valid
 
+    recipe.servings = "string"
     expect(recipe).to_not be_valid
   end
 
