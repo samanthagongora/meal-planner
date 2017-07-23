@@ -8,5 +8,34 @@ require 'rails_helper'
 # validates :servings, presence: true, numericality: true
 
 RSpec.describe Recipe, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  recipe = Recipe.create({name: "anything",
+                          calories: 1,
+                          servings: 1})
+
+  it "is valid with valid attributes" do
+    expect(recipe).to be_valid
+  end
+
+  it "is not valid without a name" do
+    recipe.name = nil
+
+    expect(recipe).to_not be_valid
+  end
+
+  it "is not valid without calories" do
+    recipe.calories = nil
+
+    expect(recipe).to_not be_valid
+  end
+
+  it "is not valid without servings" do
+    recipe.servings = nil
+
+    expect(recipe).to_not be_valid
+  end
+
+  describe "Associations" do
+    it { should have_many(:days) }
+    it { should have_many(:day_recipes) }
+  end
 end
