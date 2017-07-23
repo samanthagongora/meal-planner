@@ -13,7 +13,7 @@ RSpec.describe "Recipe can be updated" do
 
     expect(page).to have_content('Recipe Updated!')
     expect(page).to have_content('New Recipe')
-    expect(current_path).to be(recipe_path(recipe))
+    expect(current_path).to eq("/recipes/#{recipe.id}")
   end
 
   scenario "from show page" do
@@ -28,6 +28,6 @@ RSpec.describe "Recipe can be updated" do
 
     expect(page).to have_content('Recipe Updated!')
     expect(page).to have_content('New Recipe')
-    expect(current_path).to be(recipe_path(recipe))
+    expect(current_path).to eq("/recipes/#{recipe.id}")
   end
 end

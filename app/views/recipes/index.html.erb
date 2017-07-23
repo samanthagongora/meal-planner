@@ -8,6 +8,8 @@
             <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
             <p> Calories: <%= recipe.calories %><br>
               Servings: <%= recipe.servings %></p>
+              <%= link_to "Edit Recipe", edit_recipe_path(recipe) %>
+              <%#= link_to "Delete Recipe" %>
           </div>
         </div>
     </div>

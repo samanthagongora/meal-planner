@@ -19,12 +19,6 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
   end
 
-  def update(day_form_params)
-    @day = day.find(params[:date])
-
-    @day.update(day_form_params)
-  end
-
   def destroy
     @day = Day.find(params[:id])
     @user = @day.user

@@ -5,6 +5,8 @@
         <div class="caption">
           <p>Calories: <%= @recipe.calories %><br>
             Servings: <%= @recipe.servings %></p>
+            <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
+            <%#= link_to "Delete Recipe" %>
         </div>
       </div>
   </div>

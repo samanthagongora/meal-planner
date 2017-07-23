@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :day_forms, only: [:edit]
   end
 
-  resources :recipes, only: [:index, :new, :create, :show]
+  resources :recipes
 end
