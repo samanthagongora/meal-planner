@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# validates :username, presence: true, uniqueness: true
-# validates :password, presence: true
-#
-# has_many :days
-# has_many :day_recipes, through: :days
-# has_many :recipes, through: :day_recipes
-
 RSpec.describe User, type: :model do
   user = User.create({username: "anything",
                      password: "anything"})
@@ -16,14 +9,20 @@ RSpec.describe User, type: :model do
   end
 
   it "is not valid without a username" do
-    username = nil
+    user.username = nil
 
     expect(user).to_not be_valid
   end
 
   it "is not valid without a password" do
-    password = nil
+    user.password = nil
 
     expect(user).to_not be_valid
+  end
+
+  describe "Associations" do
+    it { should have_many(:days) }
+    it { should have_many(:day_recipes) }
+    it { should have_many(:recipes) }
   end
 end
