@@ -1,5 +1,6 @@
   <h1> Meal Plan for: </h1>
     <h3><%= "#{@day.date.strftime('%A, %B %d, %Y')}" %></h3>
+    <%= button_to "Back to Meal Plans", user_path(@day.user), method: :get, class: "btn btn-default" %>
   <hr>
 
 <div class="container text-center">

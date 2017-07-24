@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Recipes.destroy_all
+
 
 user = User.create(username: "samantha", password: "password",role: 1)
 user = User.create(username: "alex", password: "numbers",role: 1)
