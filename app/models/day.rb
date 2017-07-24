@@ -12,4 +12,8 @@ class Day < ApplicationRecord
   def recipe_length
     self.recipes == 4
   end
+
+  def total_calories
+    recipes.sum(:calories)
+  end
 end
