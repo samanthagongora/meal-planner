@@ -1,8 +1,7 @@
-<div class="container">
   <h1>All Recipes</h1>
     <%= button_to "Create New Recipe", new_recipe_path, method: :get, class: "btn btn-default" %>
   <hr>
-</div>
+
 <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="col-xs-6 col-md-3">

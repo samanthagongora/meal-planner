@@ -1,8 +1,6 @@
-<div class="container">
   <h1><%= "#{@user.username.capitalize}" %>'s Meal Plans</h1>
   <%= button_to "Create New Meal Plan", new_user_day_path(@user), method: :get, class: "btn btn-default" %>
   <hr>
-</div>
 <div class="container">
   <% @days.each do |day| %>
     <div class="col-sm-6 col-md-4">

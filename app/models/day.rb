@@ -14,6 +14,6 @@ class Day < ApplicationRecord
   end
 
   def total_calories
-    recipes.sum(:calories)
+    recipes.map{|r| r.calories_per_serving}.sum
   end
 end

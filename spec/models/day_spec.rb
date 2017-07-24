@@ -44,7 +44,7 @@ RSpec.describe Day, type: :model do
     day = Day.create({date: Date.today,
                       user: user,
                       recipes: recipes})
-    calories = recipes[0].calories + recipes[1].calories + recipes[2].calories + recipes[3].calories
+    calories = recipes[0].calories_per_serving + recipes[1].calories_per_serving + recipes[2].calories_per_serving + recipes[3].calories_per_serving
 
     expect(day.total_calories).to eq(calories)
   end
