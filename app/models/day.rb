@@ -15,5 +15,6 @@ class Day < ApplicationRecord
 
   def total_calories
     recipes.map{|r| r.calories_per_serving}.sum
+    # recipes.pluck(calories_per_serving).sum
   end
 end
