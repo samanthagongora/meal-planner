@@ -7,7 +7,7 @@
 <div class="container text-center">
   <% @recipes.each do |recipe| %>
     <h3><%= recipe.name %></h3><br>
-    <p><%= recipe.calories %><br>
+    <p><%= recipe.calories_per_serving %><br>
     <%= recipe.servings %></p>
   <% end %>
   <br>
