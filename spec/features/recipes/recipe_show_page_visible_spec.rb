@@ -9,5 +9,6 @@ RSpec.describe "User visits recipe page" do
     expect(page).to have_content(recipe.name)
     expect(page).to have_content(recipe.calories)
     expect(page).to have_content(recipe.servings)
+    expect(page).to have_content(recipe.calories_per_serving)
   end
 end

@@ -38,6 +38,17 @@ RSpec.describe Day, type: :model do
     expect(day).to_not be_valid
   end
 
+  it "calculates total calories" do
+    user = create(:user)
+    recipes = build_list(:recipe, 4)
+    day = Day.create({date: Date.today,
+                      user: user,
+                      recipes: recipes})
+    calories = recipes[0].calories + recipes[1].calories + recipes[2].calories + recipes[3].calories
+
+    expect(day.total_calories).to eq(calories)
+  end
+
   describe "Associations" do
     it { should have_many(:recipes) }
     it { should have_many(:day_recipes) }

@@ -9,10 +9,15 @@ RSpec.describe "User visits recipes page" do
     visit recipes_path
 
     expect(page).to have_content(recipe1.name)
-    expect(page).to have_content(recipe1.calories)
+    expect(page).to have_content(recipe1.calories_per_serving)
+    expect(page).to have_content(recipe1.servings)
+
     expect(page).to have_content(recipe2.name)
-    expect(page).to have_content(recipe2.calories)
+    expect(page).to have_content(recipe2.calories_per_serving)
+    expect(page).to have_content(recipe2.servings)
+
     expect(page).to have_content(recipe3.name)
-    expect(page).to have_content(recipe3.calories)
+    expect(page).to have_content(recipe3.calories_per_serving)
+    expect(page).to have_content(recipe3.servings)
   end
 end

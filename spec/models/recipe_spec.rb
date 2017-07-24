@@ -31,6 +31,14 @@ RSpec.describe Recipe, type: :model do
     expect(recipe).to_not be_valid
   end
 
+  it "can calculate calories per serving" do
+    recipe = Recipe.create({name: "anything",
+                            calories: 100,
+                            servings: 2})
+
+    expect(recipe.calories_per_serving).to eq(50)
+  end
+
   describe "Associations" do
     it { should have_many(:days) }
     it { should have_many(:day_recipes) }

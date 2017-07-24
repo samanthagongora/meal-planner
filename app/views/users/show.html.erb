@@ -11,8 +11,7 @@
         <h3><%= link_to day.date.strftime('%A, %B %d, %Y'), user_day_path(@user, day) %></h3>
         <% day.recipes.each do |recipe| %>
           <h3><%= recipe.name %></h3>
-          <p>calories: <%= recipe.calories %><br>
-             servings: <%= recipe.servings %></p>
+          <p>Calories pre Serving: <%= recipe.calories_per_serving %><br></p>
         <% end %>
         <hr>
          <strong>Total Calories:</strong> <%= day.total_calories %>
