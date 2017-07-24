@@ -1,17 +1,17 @@
   <h1><%= "#{@user.username.capitalize}" %>'s Meal Plans</h1>
   <%= button_to "Create New Meal Plan", new_user_day_path(@user), method: :get, class: "btn btn-default" %>
   <hr>
-<div class="container">
   <% @days.each do |day| %>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-2">
       <div class="thumbnail">
         <div class="caption">
-        <h3><%= link_to day.date.strftime('%A, %B %d, %Y'), user_day_path(@user, day) %></h3>
-        <% day.recipes.each do |recipe| %>
-          <h3><%= recipe.name %></h3>
-          <p>Calories pre Serving: <%= recipe.calories_per_serving %><br></p>
-        <% end %>
+        <h4><%= link_to day.date.strftime('%A, %B %d, %Y'), user_day_path(@user, day) %></h4>
         <hr>
+        <% day.recipes.each do |recipe| %>
+          <h5><%= recipe.name %></h5>
+          <h6>Calories per Serving: <%= recipe.calories_per_serving %><br></h6>
+          <hr>
+        <% end %>
          <strong>Total Calories:</strong> <%= day.total_calories %>
          <hr>
         <%= button_to "Edit Meal Plan", edit_user_day_form_path(@user, day), method: :get, class: "btn btn-default" %>
@@ -20,4 +20,3 @@
     </div>
   </div>
   <% end %>
-</div>
