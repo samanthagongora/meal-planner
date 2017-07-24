@@ -1,8 +1,15 @@
-<h1> Meal Plan for: </h1>
-  <h3><%= "#{@day.date.strftime('%A, %B %d, %Y')}" %></h3>
-<hr>
+<div class="container">
+  <h1> Meal Plan for: </h1>
+    <h3><%= "#{@day.date.strftime('%A, %B %d, %Y')}" %></h3>
+  <hr>
+</div>
+
+<div class="container">
   <% @recipes.each do |recipe| %>
     <h3><%= recipe.name %></h3><br>
+    <p><%= recipe.calories %><br>
+    <%= recipe.servings %></p>
   <% end %>
   <%= link_to "Edit Meal Plan", edit_user_day_path(@day.user, @day) %>
   <%= link_to "Delete Meal Plan", user_day_path(@day.user, @day), method: :delete %>
+</div>

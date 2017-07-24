@@ -20,20 +20,19 @@
         </button>
         <a class="navbar-brand" href="/">Mekase</a>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-          <li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"> Welcome, <%= "#{current_user.username.capitalize}" %></span>
-                  <span class="caret"></span>
-                </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="/users/<%="#{current_user.id}"%>">Your Meal Plans</a>
-                </li>
-              </ul>
-            </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Welcome, <%= "#{current_user.username.capitalize}" %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/users/<%="#{current_user.id}"%>">Your Meal Plans</a>
+              </li>
+            </ul>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recipes
@@ -51,8 +50,7 @@
           <li>
             <%= link_to 'Logout', logout_path, method: :delete %>
           </li>
-          <% end %>
-          <% unless current_user %>
+          <% else %>
             <li>
               <a href="/users/new">Create Account</a>
             </li>
@@ -65,13 +63,15 @@
     </div>
   </div>
   </nav>
-  <% flash.each do |name, msg| %>
-    <% if name == 'error' %>
-      <%= content_tag :div, msg, :class => "alert alert-danger", :role => "alert" %>
-    <% else %>
-      <%= content_tag :div, msg, :class => "alert alert-success", :role=> "alert" %>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <% if name == 'error' %>
+        <%= content_tag :div, msg, :class => "alert alert-danger", :role => "alert" %>
+      <% else %>
+        <%= content_tag :div, msg, :class => "alert alert-success", :role=> "alert" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <div class="container">
     <%= yield %>

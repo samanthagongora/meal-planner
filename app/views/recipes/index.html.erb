@@ -1,16 +1,22 @@
-<h1>All Recipes</h1>
-<%= link_to "Create New Recipe", new_recipe_path %>
-<hr>
-<% @recipes.each do |recipe| %>
-    <div class="col-xs-6 col-md-4">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-            <p> Calories: <%= recipe.calories %><br>
-              Servings: <%= recipe.servings %></p>
-              <%= link_to "Edit Recipe", edit_recipe_path(recipe) %>
-              <%= link_to "Delete Recipe", recipe_path(recipe), method: :delete %>
+<div class="container">
+  <h1>All Recipes</h1>
+    <%= link_to "Create New Recipe", new_recipe_path %>
+  <hr>
+</div>
+<div class="container">
+  <% @recipes.each do |recipe| %>
+    <div class="container">
+      <div class="col-xs-6 col-md-4">
+          <div class="thumbnail">
+            <div class="caption">
+              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+              <p> Calories: <%= recipe.calories %><br>
+                Servings: <%= recipe.servings %></p>
+                <%= link_to "Edit Recipe", edit_recipe_path(recipe) %>
+                <%= link_to "Delete Recipe", recipe_path(recipe), method: :delete %>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
-<% end %>
+  <% end %>
+</div>

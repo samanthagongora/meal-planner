@@ -1,19 +1,25 @@
-<h1><%= "#{@user.username.capitalize}" %>'s Meal Plans</h1>
-<%= link_to "Create New Meal Plan", new_user_day_path(@user) %>
-<hr>
-<% @days.each do |day| %>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <div class="caption">
-        <h3><%= link_to day.date.strftime('%A, %B %d, %Y'), user_day_path(@user, day) %></h3>
-        <% day.recipes.each do |recipe| %>
-          <h3><%= recipe.name %></h3>
-          <p>calories: <%= recipe.calories %><br>
-             servings: <%= recipe.servings %></p>
-        <% end %>
-        <%= link_to "Edit Meal Plan", edit_user_day_form_path(@user, day) %>
-        <%= link_to "Delete Meal Plan", user_day_path(@user, day), method: :delete %>
+<div class="container">
+  <h1><%= "#{@user.username.capitalize}" %>'s Meal Plans</h1>
+    <%= link_to "Create New Meal Plan", new_user_day_path(@user) %>
+  <hr>
+</div>
+<div class="container">
+  <% @days.each do |day| %>
+    <div class="container">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+          <h3><%= link_to day.date.strftime('%A, %B %d, %Y'), user_day_path(@user, day) %></h3>
+          <% day.recipes.each do |recipe| %>
+            <h3><%= recipe.name %></h3>
+            <p>calories: <%= recipe.calories %><br>
+               servings: <%= recipe.servings %></p>
+          <% end %>
+          <%= link_to "Edit Meal Plan", edit_user_day_form_path(@user, day) %>
+          <%= link_to "Delete Meal Plan", user_day_path(@user, day), method: :delete %>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>
